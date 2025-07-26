@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ерудит — Інтелектуальна гра</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(120deg, #dbeafe 0%, #fef9c3 100%);
+            color: #232323;
+        }
+        header {
+            background: #1e293b;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 1rem 1.5rem 1rem;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+        header p {
+            margin-top: 0.5rem;
+            font-size: 1.1rem;
+            color: #f1f5f9;
+        }
+        .main-content {
+            max-width: 650px;
+            margin: 2.5rem auto 1rem auto;
+            padding: 0 1rem;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 18px rgba(2, 28, 91, 0.07);
+        }
+        .game-img {
+            width: 80px;
+            display: block;
+            margin: 2rem auto 1.2rem auto;
+            filter: drop-shadow(0 2px 8px #cbd5e1);
+        }
+        .cta {
+            display: block;
+            margin: 2rem auto 2rem auto;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(90deg, #2563eb, #fbbf24);
+            color: #fff;
+            border: none;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            text-shadow: 0 1px 2px #0002;
+            transition: transform 0.1s;
+        }
+        .cta:hover { transform: scale(1.05); }
+        h2 { text-align: center; margin-top: 2.5rem; }
+        form {
+            background: #f8fafc;
+            border-radius: 18px;
+            padding: 2rem 1rem;
+            max-width: 600px;
+            margin: 2rem auto 0 auto;
+            box-shadow: 0 1px 8px #e0e7efaa;
+        }
+        form label { display: block; margin-bottom: 0.5rem; }
+        form input, form textarea {
+            width: 100%; padding: 0.7rem; border: 1px solid #d1d5db;
+            border-radius: 8px; margin-bottom: 1rem; font-size: 1rem;
+            background: #fff;
+        }
+        form button {
+            background: linear-gradient(90deg, #f59e42, #2563eb);
+            color: #fff; border: none;
+            border-radius: 8px; padding: 0.8rem 2rem;
+            font-size: 1.1rem; font-weight: bold;
+            cursor: pointer; transition: 0.2s;
+        }
+        form button:hover { opacity: 0.9; }
+        footer {
+            text-align: center;
+            padding: 1.5rem 1rem 1rem 1rem;
+            color: #64748b;
+            font-size: 0.98rem;
+        }
+        @media (max-width: 600px) {
+            .main-content, form { margin: 1.5rem 0.4rem; }
+            header h1 { font-size: 1.5rem; }
+            .cta { font-size: 1rem; padding: 0.8rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ерудит — Інтелектуальна гра</h1>
+        <p>Грайте у слова українською! Розвивайте словниковий запас, змагайтеся з друзями та штучним інтелектом.</p>
+    </header>
+    <div class="main-content">
+        <img src="https://cdn-icons-png.flaticon.com/512/2595/2595446.png" alt="Ерудит Game Icon" class="game-img" />
+        <h2>Гра «Ерудит» — це сучасна класика!</h2>
+        <p>
+            Випробуйте свій розум, складайте слова на ігровому полі, обігруйте суперників та відкривайте нові можливості української мови.  
+            <br><br>
+            ✔️ Яскравий сучасний інтерфейс <br>
+            ✔️ Гра з друзями або комп'ютером <br>
+            ✔️ Словник української мови <br>
+            ✔️ Досягнення, підказки, рейтинги
+        </p>
+        <a class="cta" href="#contact">Зв'язатися зі мною</a>
+    </div>
+
+    <form id="contact" onsubmit="return sendMail(event)">
+        <h2>Зворотний зв'язок</h2>
+        <label for="name">Ваше ім'я</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email для відповіді</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Повідомлення</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+        <button type="submit">Надіслати</button>
+    </form>
+
+    <footer>
+        © 2025 Ерудит — Інтелектуальна гра | Всі права захищено
+    </footer>
+
+    <script>
+        function sendMail(event) {
+            event.preventDefault();
+            // Change email below to your real email:
+            const yourEmail = "beniakit2025@gmail.com";
+            const name = encodeURIComponent(document.getElementById('name').value);
+            const email = encodeURIComponent(document.getElementById('email').value);
+            const message = encodeURIComponent(document.getElementById('message').value);
+
+            const subject = encodeURIComponent('Контакт з сайту Ерудит');
+            const body = encodeURIComponent(
+                `Ім'я: ${decodeURIComponent(name)}\nEmail: ${decodeURIComponent(email)}\n\n${decodeURIComponent(message)}`
+            );
+
+            window.location.href = `mailto:${yourEmail}?subject=${subject}&body=${body}`;
+            setTimeout(() => {
+                alert('Дякуємо! Ваше повідомлення відкрито у вашому поштовому клієнті.');
+            }, 400);
+            return false;
+        }
+    </script>
+</body>
+</html>
